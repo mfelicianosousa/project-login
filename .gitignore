@@ -1,0 +1,6 @@
+composer.phar
+/vendor/composer
+/vendor/phpMailer
+/vendor/rain
+/vendor/slim
+/views-cache

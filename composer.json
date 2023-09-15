@@ -1,0 +1,23 @@
+{
+    "name": "projetologin/projetologin",
+    "description": "Projeto Login",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Main\\": "vendor\\projetologin\\src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marcelino Sousa",
+            "email": "marcelino.feliciano@outlook.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "phpmailer/phpmailer":"5.2.22",
+        "slim/slim": "2.0",
+        "rain/raintpl":"3.0.0"
+    }
+}
