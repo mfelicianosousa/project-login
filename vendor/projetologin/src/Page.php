@@ -9,6 +9,8 @@ class Page
     private $tpl;
     private $options = [];
     private $defaults = [
+        'header' => true,
+        'footer' => true,
         'data' => [],
     ];
 
@@ -20,9 +22,8 @@ class Page
         }
     }
 
-
     /* Renderiza o header da página */
-    public function __construct($opts = [], $tpl_dir = "views")
+    public function __construct($opts = [], $tpl_dir = 'views')
     {
         $this->options = array_merge($this->defaults, $opts);
 
@@ -34,14 +35,15 @@ class Page
 
         Tpl::configure($config);
 
-        $this->tpl = new Tpl;
+        $this->tpl = new Tpl();
 
         $this->setData($this->options['data']);
-
-        $this->tpl->draw('header');
+        // se header = true, renderiza o header.
+        if ($this->options['header'] === true) {
+            $this->tpl->draw('header');
+        }
     } // end method
 
-     
     /* Renderiza o miolo da página */
     public function setTpl($name, $data = [], $returnHTML = false)
     {
@@ -53,8 +55,9 @@ class Page
     /* Renderiza o footer da página */
     public function __destruct()
     {
-        $this->tpl->draw('footer');
+        // Se o footer for true, renderiza o footer
+        if ($this->options['footer'] === true) {
+            $this->tpl->draw('footer');
+        }
     } // end method
-
-   
 } // end Class
